@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using curso.dominio;
 
 namespace curso {
     class Program {
@@ -38,7 +39,7 @@ namespace curso {
                         produtos.Add(P);
                         produtos.Sort();
                     }
-                    catch (NegocioException e) {
+                    catch (ModelException e) {
                         Console.WriteLine("Erro de negócio: " + e.Message);
                     }
                     catch (Exception e) {
@@ -50,7 +51,7 @@ namespace curso {
                         Pedido P = Tela.lerPedido(produtos);
                         pedidos.Add(P);
                     }
-                    catch (NegocioException e) {
+                    catch (ModelException e) {
                         Console.WriteLine("Erro de negócio: " + e.Message);
                     }
                     catch (Exception e) {
@@ -61,7 +62,7 @@ namespace curso {
                     try {
                         Tela.mostrarPedido(pedidos);
                     }
-                    catch (NegocioException e) {
+                    catch (ModelException e) {
                         Console.WriteLine("Erro de negócio: " + e.Message);
                     }
                     catch (Exception e) {

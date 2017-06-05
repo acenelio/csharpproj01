@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using curso.dominio;
 
 namespace curso {
 
@@ -55,7 +56,7 @@ namespace curso {
                 int codProduto = int.Parse(Console.ReadLine());
                 int pos = produtos.FindIndex(x => x.codigo == codProduto);
                 if (pos == -1) {
-                    throw new NegocioException("Código de produto não encontrado: " + codProduto);
+                    throw new ModelException("Código de produto não encontrado: " + codProduto);
                 }
                 Console.Write("Quantidade: ");
                 int qte = int.Parse(Console.ReadLine());
@@ -72,7 +73,7 @@ namespace curso {
             int codPedido = int.Parse(Console.ReadLine());
             int pos = pedidos.FindIndex(x => x.codigo == codPedido);
             if (pos == -1) {
-                throw new NegocioException("Código de pedido não encontrado: " + codPedido);
+                throw new ModelException("Código de pedido não encontrado: " + codPedido);
             }
             Console.WriteLine(pedidos[pos]);
             Console.WriteLine();

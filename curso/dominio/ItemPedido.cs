@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
 
-namespace curso {
+namespace curso.dominio {
     class ItemPedido {
         public int quantidade { get; set; }
         public double porcentagemDesconto { get; set; }

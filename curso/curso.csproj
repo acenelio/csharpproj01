@@ -45,7 +45,7 @@
     <Compile Include="dominio\ItemPedido.cs" />
     <Compile Include="dominio\Pedido.cs" />
     <Compile Include="dominio\Produto.cs" />
-    <Compile Include="NegocioException.cs" />
+    <Compile Include="dominio\ModelException.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tela.cs" />

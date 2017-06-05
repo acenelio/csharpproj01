@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 
-namespace curso {
+namespace curso.dominio {
     class Pedido {
         public int codigo { get; set; }
         public DateTime data { get; set; }
