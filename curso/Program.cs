@@ -4,10 +4,11 @@ using curso.dominio;
 
 namespace curso {
     class Program {
-        static void Main(string[] args) {
 
-            List<Produto> produtos = new List<Produto>();
-            List<Pedido> pedidos = new List<Pedido>();
+        public static List<Produto> produtos = new List<Produto>();
+        public static List<Pedido> pedidos = new List<Pedido>();
+
+        static void Main(string[] args) {
 
             int opcao = 0;
 
@@ -31,13 +32,11 @@ namespace curso {
                 Console.WriteLine();
 
                 if (opcao == 1) {
-                    Tela.mostrarProdutos(produtos);
+                    Tela.mostrarProdutos();
                 }
                 else if (opcao == 2) {
                     try {
-                        Produto P = Tela.lerProduto();
-                        produtos.Add(P);
-                        produtos.Sort();
+                        Tela.cadastrarProduto();
                     }
                     catch (Exception e) {
                         Console.WriteLine("Erro inesperado: " + e.Message);
@@ -45,8 +44,7 @@ namespace curso {
                 }
                 else if (opcao == 3) {
                     try {
-                        Pedido P = Tela.cadastrarPedido(produtos);
-                        pedidos.Add(P);
+                        Tela.cadastrarPedido();
                     }
                     catch (ModelException e) {
                         Console.WriteLine("Erro de negócio: " + e.Message);
@@ -57,7 +55,7 @@ namespace curso {
                 }
                 else if (opcao == 4) {
                     try {
-                        Tela.mostrarPedido(pedidos);
+                        Tela.mostrarPedido();
                     }
                     catch (ModelException e) {
                         Console.WriteLine("Erro de negócio: " + e.Message);

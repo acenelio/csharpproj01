@@ -18,15 +18,15 @@ namespace curso {
             Console.Write("Digite uma opção: ");
         }
 
-        public static void mostrarProdutos(List<Produto> produtos) {
+        public static void mostrarProdutos() {
             Console.WriteLine("LISTAGEM DE PRODUTOS:");
-            for (int i = 0; i < produtos.Count; i++) {
-                Console.WriteLine(produtos[i]);
+            for (int i = 0; i < Program.produtos.Count; i++) {
+                Console.WriteLine(Program.produtos[i]);
             }
             Console.WriteLine();
         }
 
-        public static Produto lerProduto() {
+        public static void cadastrarProduto() {
             Console.WriteLine("Digite os dados do produto: ");
             Console.Write("Código: ");
             int codigo = int.Parse(Console.ReadLine());
@@ -34,10 +34,12 @@ namespace curso {
             string descricao = Console.ReadLine();
             Console.Write("Preço: ");
             double preco = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-            return new Produto(codigo, descricao, preco);
+            Produto P = new Produto(codigo, descricao, preco);
+            Program.produtos.Add(P);
+            Program.produtos.Sort();
         }
 
-        public static Pedido cadastrarPedido(List<Produto> produtos) {
+        public static void cadastrarPedido() {
             Console.WriteLine("Digite os dados do pedido: ");
             Console.Write("Código: ");
             int codigo = int.Parse(Console.ReadLine());
@@ -54,7 +56,7 @@ namespace curso {
                 Console.WriteLine("Digite os dados do " + i + "° item:");
                 Console.Write("Produto (código): ");
                 int codProduto = int.Parse(Console.ReadLine());
-                int pos = produtos.FindIndex(x => x.codigo == codProduto);
+                int pos = Program.produtos.FindIndex(x => x.codigo == codProduto);
                 if (pos == -1) {
                     throw new ModelException("Código de produto não encontrado: " + codProduto);
                 }
@@ -62,20 +64,20 @@ namespace curso {
                 int qte = int.Parse(Console.ReadLine());
                 Console.Write("Porcentagem de desconto: ");
                 double porcent = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-                ItemPedido ip = new ItemPedido(qte, porcent, P, produtos[pos]);
+                ItemPedido ip = new ItemPedido(qte, porcent, P, Program.produtos[pos]);
                 P.itens.Add(ip);
             }
-            return P;
+            Program.pedidos.Add(P);
         }
 
-        public static void mostrarPedido(List<Pedido> pedidos) {
+        public static void mostrarPedido() {
             Console.Write("Digite o código do pedido: ");
             int codPedido = int.Parse(Console.ReadLine());
-            int pos = pedidos.FindIndex(x => x.codigo == codPedido);
+            int pos = Program.pedidos.FindIndex(x => x.codigo == codPedido);
             if (pos == -1) {
                 throw new ModelException("Código de pedido não encontrado: " + codPedido);
             }
-            Console.WriteLine(pedidos[pos]);
+            Console.WriteLine(Program.pedidos[pos]);
             Console.WriteLine();
         }
     }
