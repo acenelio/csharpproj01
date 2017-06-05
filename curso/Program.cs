@@ -3,11 +3,10 @@ using System.Collections.Generic;
 
 namespace curso {
     class Program {
-
-        public static List<Produto> produtos = new List<Produto>();
-        public static List<Pedido> pedidos = new List<Pedido>();
-
         static void Main(string[] args) {
+
+            List<Produto> produtos = new List<Produto>();
+            List<Pedido> pedidos = new List<Pedido>();
 
             int opcao = 0;
 
@@ -24,7 +23,7 @@ namespace curso {
                 Console.WriteLine();
 
                 if (opcao == 1) {
-                    Tela.mostrarProdutos();
+                    Tela.mostrarProdutos(produtos);
                 }
                 else if (opcao == 2) {
                     try {
@@ -40,7 +39,7 @@ namespace curso {
                 }
                 else if (opcao == 3) {
                     try {
-                        Pedido P = Tela.lerPedido();
+                        Pedido P = Tela.lerPedido(produtos);
                         pedidos.Add(P);
                     }
                     catch (NegocioException e) {
@@ -52,7 +51,7 @@ namespace curso {
                 }
                 else if (opcao == 4) {
                     try {
-                        Tela.mostrarPedido();
+                        Tela.mostrarPedido(pedidos);
                     }
                     catch (NegocioException e) {
                         Console.WriteLine("Erro de negócio: " + e.Message);
