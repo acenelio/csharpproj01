@@ -39,9 +39,6 @@ namespace curso {
                         produtos.Add(P);
                         produtos.Sort();
                     }
-                    catch (ModelException e) {
-                        Console.WriteLine("Erro de negócio: " + e.Message);
-                    }
                     catch (Exception e) {
                         Console.WriteLine("Erro inesperado: " + e.Message);
                     }
