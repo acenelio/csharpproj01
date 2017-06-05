@@ -45,7 +45,7 @@ namespace curso {
                 }
                 else if (opcao == 3) {
                     try {
-                        Pedido P = Tela.lerPedido(produtos);
+                        Pedido P = Tela.cadastrarPedido(produtos);
                         pedidos.Add(P);
                     }
                     catch (ModelException e) {

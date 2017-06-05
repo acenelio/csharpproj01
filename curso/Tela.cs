@@ -37,7 +37,7 @@ namespace curso {
             return new Produto(codigo, descricao, preco);
         }
 
-        public static Pedido lerPedido(List<Produto> produtos) {
+        public static Pedido cadastrarPedido(List<Produto> produtos) {
             Console.WriteLine("Digite os dados do pedido: ");
             Console.Write("Código: ");
             int codigo = int.Parse(Console.ReadLine());
