@@ -9,7 +9,7 @@ namespace curso {
 
     class Tela {
         public static void mostrarMenu() {
-            Console.WriteLine("1 - Listar produtos");
+            Console.WriteLine("1 - Listar produtos ordenadamente");
             Console.WriteLine("2 - Cadastrar produto");
             Console.WriteLine("3 - Cadastrar pedido");
             Console.WriteLine("4 - Mostrar dados de um pedido");
